@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+
+:root {
+  font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: dark;
+  color: #e2e8f0;
+  background-color: #05050a;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  min-width: 320px;
+  min-height: 100vh;
+  background: radial-gradient(circle at 50% 0%, rgba(220, 38, 38, 0.05), transparent 50%),
+              radial-gradient(circle at 0% 100%, rgba(6, 182, 212, 0.05), transparent 50%),
+              #05050a;
+}
+
+#root {
+  width: 100%;
+}
+
+.mono {
+  font-family: 'Space Mono', monospace;
+}
+
+/* Premium Sci-Fi Border */
+.cyber-card {
+  background: rgba(10, 10, 18, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  position: relative;
+  overflow: hidden;
+}
+
+.cyber-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.3), transparent);
+}
+
+.cyber-card-danger::before {
+  background: linear-gradient(90deg, transparent, rgba(239, 68, 68, 0.4), transparent);
+}
+
+/* Neon buttons */
+.cyber-btn {
+  background: transparent;
+  color: #06b6d4;
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: 'Space Mono', monospace;
+}
+
+.cyber-btn:hover:not(:disabled) {
+  background: rgba(6, 182, 212, 0.1);
+  border-color: #06b6d4;
+  box-shadow: 0 0 15px rgba(6, 182, 212, 0.2);
+  transform: translateY(-1px);
+}
+
+.cyber-btn-danger {
+  color: #ef4444;
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.cyber-btn-danger:hover:not(:disabled) {
+  background: rgba(239, 68, 68, 0.1);
+  border-color: #ef4444;
+  box-shadow: 0 0 15px rgba(239, 68, 68, 0.2);
+}
+
+/* Terminal scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.scanline::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0) 0%,
+    rgba(6, 182, 212, 0.02) 10%,
+    rgba(255,255,255,0) 20%
+  );
+  top: 0;
+  left: 0;
+  animation: scanline 6s linear infinite;
+  pointer-events: none;
+}
